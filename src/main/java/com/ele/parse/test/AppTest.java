@@ -50,11 +50,12 @@ public class AppTest
     {	
     	System.out.println("==========application running===========");
     	TestPrepare prepare = new TestPrepare();
-//    	File file = new File("E:\\resources\\发票\\catagely\\testFiles\\error\\2017-5-3");
-//    	File file = new File("E:\\resources\\发票\\catagely\\testFiles\\all");
-    	File file = new File("D:\\work\\eclipse_workspace\\eclipse2_workspace\\pdf-produce\\tmp\\generatePdf");
+//    	File file = new File("E:/resources/发票/invoice_second/More-page/");
     	
-//    	File file = new File("E:\\resources\\发票\\catagely\\testFiles\\百旺");
+    	File file = new File("E:/resources/发票/catagely/testFiles/签章测试");
+//    	File file = new File("D://work//eclipse_workspace//eclipse2_workspace//pdf-produce//tmp//generatePdf");
+//    	File file = new File("C:/Users/thinkpad/Desktop/发票/专票/original/");
+//    	File file = new File("F://generate_pdfs");
     	List<String> list = new ArrayList<String>();
     	prepare.ergodic(file, list);
     	
@@ -65,6 +66,7 @@ public class AppTest
     		boolean onlyErWeiMa=false;//true代表只解析二维码（此时无论isJxqzSelected输入任何值都不解析）
     		long startTime = System.currentTimeMillis();
     		FPUtils fpUtiles = new FPUtils();
+    		System.out.println("\n--------------------  path ===="+path);
     		FPEntity fp = fpUtiles.setFPAttri(path,null,isBase64Data,isJxqzSelected,onlyErWeiMa);
 //    		System.out.println(fp);
     		InvokeUtil.trimParse(fp);
@@ -72,21 +74,23 @@ public class AppTest
     		System.out.println("=========time======"+(endTime-startTime)+"===============");
     		System.out.println(fp);
     	}
+    }}
     	
-/*    	
+    	/*
     	for(String path:list){
     		System.out.println(path);
     		FPUtils fpUtiles = new FPUtils();
     		try {
 				Result result = fpUtiles.QRCodeDecode(path);
-				System.out.println("二维码内容\n"+result.getText());
+				System.out.println("二维码内容/n"+result.getText());
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
     	}
     	*/
-    }
+    	
+    	
     	/********************************start1 直接读pdf文件路径*********************************/
     	
     	/*
@@ -121,11 +125,3 @@ public class AppTest
     	/********************************end1 直接读pdf文件路径*********************************/
     	
     	
-    	
-
-  
-
-	
-
-	
-}

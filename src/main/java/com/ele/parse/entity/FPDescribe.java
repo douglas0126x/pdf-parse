@@ -33,7 +33,7 @@ public class FPDescribe {
 		map.put("jxqz", newLineFlag);
 		
 		//购买方
-		map.put("buyer_name", "名称;:;：");
+		map.put("buyer_name", "名称;:;：;名　　　　称;名　　　　称;");
 		map.put("buyer_nsrsbh", "纳税人识别号;:;：");
 		map.put("buyer_addressPhoneNum", "地址、电话;:;：");
 		map.put("buyer_khhandzh", "开户行及账号;:;：");
@@ -45,7 +45,7 @@ public class FPDescribe {
 		//合计
 		map.put("hjje", newLineFlag+";¥;￥");
 		map.put("hjse", newLineFlag+";¥;￥");
-		map.put("jshj", "¥;(小写);￥;价税合计（大写）;（小写）;壹;贰;叁;肆;伍;陆;柒;捌;玖;零;万;仟;佰;拾;元;角;分;圆;整;亿;"+newLineFlag);
+		map.put("jshj", "¥;(小写);￥;价税合计（大写）;（小写）;壹;贰;叁;肆;伍;陆;柒;捌;玖;零;万;仟;佰;拾;元;角;分;圆;整;亿;⊙;"+newLineFlag);
 		//备注
 		map.put("bz", newLineFlag+";备注");
 //		map.put("bz", newLineFlag);

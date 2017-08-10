@@ -174,7 +174,8 @@ public class FPUtils {
     	}else{
     		itemListFlag = itemPointList;
         	int y = 160;
-        	int height = 13;
+//        	int height = 13;
+        	int height = 26;
         	setGoodsList(pdDocument, goodsList,itemListFlag,y,height);
     		if(goodsList.size()==0){
     			judgeSpecial = 3;
@@ -188,6 +189,8 @@ public class FPUtils {
 		
 //		ArrayList<Goods> goodsList = getGoodsList(judgeSpecial,pdDocument);
 		fp.setGoodsList(goodsList);
+		
+		System.out.println("\n★★★★★★★★★★★☆☆   invocie type = "+judgeSpecial+"  ★★★★★★★★★★★☆☆");
 		
 		//6合计金额
 		String hjje = getHjje(judgeSpecial,pdDocument);
@@ -408,7 +411,8 @@ public class FPUtils {
 			
 			int x=40;
 			int y=90;
-			int width=310;
+//			int width=310;
+			int width=305;
 			int height=60;
 			String str=PDFParser.execute(x,y,width,height,pdDocument);       
 			return str;
@@ -486,6 +490,7 @@ public class FPUtils {
     		ArrayList<Goods>goodsList=new ArrayList<Goods>();
         	int y = 160;
         	int height = 13;
+        
         	setGoodsList(pdDocument, goodsList,itemListFlag,y,height);
     		if(goodsList.size()==0){
     			judgeSpecial = 3;
@@ -521,7 +526,7 @@ public class FPUtils {
 			}else{
 				mutiLineHandle(goodsList, goods);
 			}
-			y=y+13;
+			y=y+height;
 			//System.out.println(str);
 			str=str.trim();
 		}while(!str.matches("合.*计"));
@@ -813,18 +818,19 @@ public class FPUtils {
 /*
  * 		author:yaoxj
  */
-		/*
+		
 		add(new ItemPoint(0,175));//货物或应税劳务、服务名称
 		add(new ItemPoint(175,50));//规格型号
 		add(new ItemPoint(229,30));//单位
 		add(new ItemPoint(260,60));//数量
 		add(new ItemPoint(320,70));//单价
-		add(new ItemPoint(410,70));//金额
-		add(new ItemPoint(480,60));//税率
+		add(new ItemPoint(410,80));//金额
+		add(new ItemPoint(490,60));//税率
 		add(new ItemPoint(540,70));//税额
-		*/
 		
 		
+		/*
+		 * current
 		add(new ItemPoint(0,175));//货物或应税劳务、服务名称
 		add(new ItemPoint(175,50));//规格型号
 		add(new ItemPoint(229,40));//单位
@@ -833,7 +839,7 @@ public class FPUtils {
 		add(new ItemPoint(410,70));//金额
 		add(new ItemPoint(480,60));//税率
 		add(new ItemPoint(540,70));//税额
-		
+		*/
 		
 	}};
 	

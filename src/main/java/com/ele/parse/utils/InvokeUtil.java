@@ -132,7 +132,7 @@ public class InvokeUtil {
 				rep = (String) o;
 				String[] replaceArr = mapValue.split(";");
 				for(String arr:replaceArr){
-					rep = rep.replace(" ", "").replace(" ","").replace(arr, "");
+					rep = rep.replace(" ", "").replace(" ","").replace("　", "").replace("　", "").replace(arr, "");
 				}
 				m=model.getClass().getMethod("set"+name,String.class);										//调用setter方法设值
 				m.invoke(model, rep);																//

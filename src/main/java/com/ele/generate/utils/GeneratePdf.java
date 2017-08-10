@@ -20,6 +20,8 @@ import com.ele.generate.entity.FPData;
 import com.ele.generate.entity.FPDistributed;
 import com.ele.generate.entity.FpKj;
 import com.ele.generate.entity.FpKjmx;
+import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Image;
 import com.itextpdf.text.pdf.BaseFont;
 import com.itextpdf.text.pdf.PdfContentByte;
 import com.itextpdf.text.pdf.PdfReader;
@@ -279,7 +281,7 @@ public class GeneratePdf {
 		try {
 			//创建字体
 //			fontSimsun = BaseFont.createFont("C:/WINDOWS/Fonts/SIMYOU.TTF", BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
-			fontSimsun = BaseFont.createFont("/resourcesFile/font/SIMYOU.TTF", BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
+			fontSimsun = BaseFont.createFont("font/SIMYOU.TTF", BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
 			fontCour = BaseFont.createFont(BaseFont.COURIER, "", false);
 			//默认字体大小
 			int defaultFontSize = InvoiceGenUtil.DEFUALT_FONTSIZE;
@@ -308,6 +310,7 @@ public class GeneratePdf {
 			/**
 			 * ================基本内容填充==================
 			 */
+			
 			//基本四项设置：发票代码，发票号码，开票日期 ，校验码
 			setBasicFours(fp, fplx, pcb);
 			//其他基本内容：购买方，销售方，操作人系列，密码区，备注等
@@ -324,6 +327,9 @@ public class GeneratePdf {
 				bulidA5Mx(pcb, fpmx);
 				pcb.endText();
 			}
+			
+			//二维码
+			setQrCodePic(fp, fplx, pcb);
 			/**
 			 * ===============发票货物清单接受===============
 			 */
@@ -444,6 +450,28 @@ public class GeneratePdf {
 			pcb.showTextAligned(3, getCheckCode(fp.getjYM()), 475, 322, 0);				// 校验码475  322
 		}
 	}
+	
+	private static void setQrCodePic(FpKj fp, String fplx, PdfContentByte pcb) throws Exception {
+		Image image = Image.getInstance("D:/work/eclipse_workspace/eclipse2_workspace/pdf-parse/temp/tempQRCode.png");
+//		Image image = Image.getInstance("F:/pic/id_pic/positive.jpg");
+		
+//		
+//		image.setAlignment(Image.LEFT | Image.TEXTWRAP); 
+//		image.setBorder(Image.BOX); 
+//		image.setBorderWidth(10); 
+//		image.setBorderColor(BaseColor.WHITE); 
+//	    image.scaleToFit(1000, 72);//大小 
+//	    image.setRotationDegrees(-30);//旋转 
+		//TOOD  坐标
+		image.setAbsolutePosition(20, 330.0f); // set the first background image of the absolute   
+		image.scaleToFit(50.0f,50.0f);  
+		pcb.addImage(image);  
+		
+		
+	}
+	
+	
+	
 	/**
 	 * 根据发票类型获取发票生成模板
 	 * @param fplx
@@ -461,7 +489,8 @@ public class GeneratePdf {
 			reader = new PdfReader("/resourcesFile/template/zzhshzhyfp_bj.pdf");
 		}else{
 			//增值税普通发票——上海
-			reader = new PdfReader("/resourcesFile/template/zzhshptfp_dz_sh.pdf");
+//			reader = new PdfReader("template/zzhshptfp_dz_sh.pdf");
+			reader = new PdfReader("template/fp_empty.pdf");
 		}
 		return reader;
 	}

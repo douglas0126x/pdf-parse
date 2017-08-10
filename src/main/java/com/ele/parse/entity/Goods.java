@@ -3,6 +3,11 @@ package com.ele.parse.entity;
 public class Goods {
 	
 	/**
+	 * 应税劳务清单序号（最后为小计、合计等）
+	 */
+	private String sortNum;
+	
+	/**
 	 * 货物或应税劳务、服务名称
 	 */
 	private String name;
@@ -60,6 +65,12 @@ public class Goods {
 	}
 	public void setNumber(String number) {
 		this.number = number;
+	}
+	public String getSortNum() {
+		return sortNum;
+	}
+	public void setSortNum(String sortNum) {
+		this.sortNum = sortNum;
 	}
 	public String getPrice() {
 		return price;

@@ -1,6 +1,7 @@
 package com.ele.parse.entity;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 发票模型
@@ -38,8 +39,8 @@ public class FPEntity {
 	/*************start 商品基本信息**************/
 	private ArrayList<Goods>goodsList=new ArrayList<Goods>();
 	/*************end 商品基本信息**************/
-	
-	
+	/********* 货物清单列表 **************/
+	private List<Goods> detailGoodsList ;
 	
 	
 	/*************start 购买方**************/
@@ -184,6 +185,12 @@ public class FPEntity {
 	public String getBuyer_name() {
 		return buyer_name;
 	}
+	public List<Goods> getDetailGoodsList() {
+		return detailGoodsList;
+	}
+	public void setDetailGoodsList(List<Goods> detailGoodsList) {
+		this.detailGoodsList = detailGoodsList;
+	}
 	public void setBuyer_name(String buyerName) {
 		buyer_name = buyerName;
 	}
@@ -294,7 +301,8 @@ public class FPEntity {
 				+ ", kprq=" + kprq + ", jqbh=" + jqbh + ", jym=" + jym
 				+ ", passwordArea=" + passwordArea + ", erWeiMaPicturePath="
 				+ erWeiMaPicturePath + ", erWeiMaData=" + erWeiMaData
-				+ ", goodsList=" + goodsList + ", buyer_name=" + buyer_name
+				+ ", goodsList=" + goodsList + ", detailGoodsList="
+				+ detailGoodsList + ", buyer_name=" + buyer_name
 				+ ", buyer_nsrsbh=" + buyer_nsrsbh + ", buyer_addressPhoneNum="
 				+ buyer_addressPhoneNum + ", buyer_khhandzh=" + buyer_khhandzh
 				+ ", seller_name=" + seller_name + ", seller_nsrsbh="
@@ -305,6 +313,9 @@ public class FPEntity {
 				+ personsInfo + ", jxqz=" + jxqz + ", receivers=" + receivers
 				+ "]";
 	}
+	
+	
+	
 	
 	
 }
